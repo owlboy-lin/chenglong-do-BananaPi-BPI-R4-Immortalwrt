@@ -2,6 +2,8 @@
 #
 # Add a feed source
 #echo 'src-git moruiris https://github.com/moruiris/openwrt-packages;immortalwrt' >>feeds.conf.default
+# 添加nikki(mihomo) feed
+echo "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main" >> "feeds.conf.default"
 #  Luci packages
 git clone -b Immortalwrt https://github.com/shidahuilang/openwrt-package ./package/openwrt-packages
 rm -rf ./package/openwrt-packages/relevance/alist 
@@ -43,3 +45,7 @@ merge_package https://github.com/kenzok8/jell jell/luci-app-serverchan
 merge_package https://github.com/DHDAXCW/lede-rockchip lede-rockchip/package/wwan
 merge_package "-b openwrt-24.10 https://github.com/openwrt/openwrt" openwrt/package/base-files
 popd
+
+# Lucky
+rm -rf package/lucky
+git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
