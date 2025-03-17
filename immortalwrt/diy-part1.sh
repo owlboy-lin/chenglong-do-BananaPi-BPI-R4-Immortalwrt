@@ -15,7 +15,8 @@ rm -rf ./package/openwrt-packages/luci-app-nginx-pingos
 rm -rf ./package/openwrt-packages/luci-app-syncthing
 rm -rf ./package/openwrt-packages/luci-app-adguardhome
 rm -rf ./package/openwrt-packages/relevance/adguardhome
-
+rm -rf ./package/openwrt-packages/luci-app-netdata
+rm -rf ./package/openwrt-packages/relevance/netdata
 # Merge_package
 function merge_package(){
     repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
@@ -34,6 +35,8 @@ git clone --depth=1 https://github.com/fw876/helloworld
 # Add luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# Add OpenClash
+git clone --depth=1 https://github.com/vernesong/OpenClash
 merge_package https://github.com/kenzok8/jell jell/luci-app-fan
 merge_package https://github.com/kenzok8/jell jell/adguardhome
 merge_package https://github.com/kenzok8/jell jell/luci-app-adguardhome
