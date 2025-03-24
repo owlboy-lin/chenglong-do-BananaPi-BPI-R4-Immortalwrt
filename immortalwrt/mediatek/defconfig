@@ -564,9 +564,6 @@ CONFIG_UNETD_VXLAN_SUPPORT=y
 CONFIG_VPNC_GNUTLS=y
 CONFIG_ZRAM_DEF_COMP_LZORLE=y
 
-CONFIG_PACKAGE_luci-app-nikki=y
-CONFIG_PACKAGE_luci-app-vlmcsd=y
 CONFIG_PACKAGE_luci-app-wol=y
 CONFIG_PACKAGE_luci-app-lucky=y
 CONFIG_PACKAGE_luci-app-uhttpd=y
-CONFIG_PACKAGE_luci-app-upnp=y
