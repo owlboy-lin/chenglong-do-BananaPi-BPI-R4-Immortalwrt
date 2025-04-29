@@ -39,8 +39,10 @@ merge_package https://github.com/kenzok8/jell jell/homebox
 merge_package https://github.com/kenzok8/jell jell/luci-app-netspeedtest
 merge_package https://github.com/kenzok8/jell jell/quickstart
 merge_package https://github.com/kenzok8/jell jell/luci-app-quickstart
-merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
 merge_package https://github.com/kenzok8/jell jell/luci-app-store
+merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
+merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
+merge_package https://github.com/kenzok8/jell jell/taskd
 popd
 
 # Lucky
