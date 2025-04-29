@@ -6,13 +6,6 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 echo "
 
-
-
-CONFIG_TARGET_SQUASHFS_BLOCK_SIZE=512
-
-
-
-
 # 自动重启
 CONFIG_PACKAGE_luci-app-autoreboot=y
 
@@ -69,6 +62,7 @@ CONFIG_PACKAGE_luci-app-arpbind=n
 CONFIG_PACKAGE_luci-app-ddns=n
 CONFIG_PACKAGE_luci-app-nlbwmon=y
 CONFIG_PACKAGE_luci-app-samba4=n
+CONFIG_PACKAGE_luci-app-smartdns=n
 CONFIG_PACKAGE_luci-app-upnp=n
 CONFIG_PACKAGE_luci-app-vsftpd=n
 # CONFIG_PACKAGE_luci-app-wol=n
