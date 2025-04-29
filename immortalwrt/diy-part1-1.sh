@@ -34,6 +34,10 @@ rm  -rf package/dhdaxcw-app/adguardhome
 rm  -rf package/dhdaxcw-app/luci-app-adguardhome
 merge_package https://github.com/kenzok8/jell adguardhome
 merge_package https://github.com/kenzok8/jell luci-app-adguardhome
+merge_package https://github.com/kenzok8/jell luci-app-poweroffdevice
+merge_package https://github.com/kenzok8/jell luci-app-netspeedtest
+merge_package https://github.com/kenzok8/jell luci-app-quickstart
+merge_package https://github.com/kenzok8/jell luci-app-store
 popd
 
 # Lucky
