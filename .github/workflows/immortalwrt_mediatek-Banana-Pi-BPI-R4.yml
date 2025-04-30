@@ -22,6 +22,7 @@ env:
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1-1.sh
   DIY_P2_SH: immortalwrt/diy-part2-1.sh
+  Firmware_Name: immortalwrt-mt798x-Banana-Pi-BPI-R4
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -66,6 +67,17 @@ jobs:
     - name: Download firmware source code
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+
+
+    - name: 缓存
+      uses: klever1988/cachewrtbuild@main
+      if: env.CACHE_BUILD == 'true' || (github.event.inputs.CACHE_BUILD == 'true')
+      with:
+        ccache: 'true'
+        clean: 'false'
+        mixkey: '${{ env.Firmware_Name }}-${{ env.START_SECONDS }}'
+        prefix: ${{ github.workspace }}/openwrt
+
 
     - name: Update & install feeds
       working-directory: ./openwrt
