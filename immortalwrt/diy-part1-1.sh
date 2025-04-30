@@ -43,6 +43,7 @@ merge_package https://github.com/kenzok8/jell jell/luci-app-store
 merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
 merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
 merge_package https://github.com/kenzok8/jell jell/taskd
+merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
 popd
 
 # Lucky
