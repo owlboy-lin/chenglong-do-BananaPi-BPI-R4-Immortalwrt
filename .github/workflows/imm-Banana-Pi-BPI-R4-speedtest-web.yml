@@ -22,7 +22,7 @@ env:
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1-speedtest.sh
   DIY_P2_SH: immortalwrt/diy-part2-speedtest.sh
-  Firmware_Name: immortalwrt-mt798x-Banana-Pi-BPI-R4
+  Firmware_Name: imm-Banana-Pi-BPI-R4-speedtest-web
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai

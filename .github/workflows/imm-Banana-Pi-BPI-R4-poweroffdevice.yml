@@ -22,7 +22,7 @@ env:
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1-poweroffdevice.sh
   DIY_P2_SH: immortalwrt/diy-part2-1.sh
-  Firmware_Name: immortalwrt-mt798x-Banana-Pi-BPI-R4
+  Firmware_Name: imm-Banana-Pi-BPI-R4-poweroffdevice
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
