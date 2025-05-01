@@ -45,7 +45,9 @@ merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
 # merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
 # merge_package https://github.com/kenzok8/jell jell/taskd
 merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
+merge_package https://github.com/kenzok8/jell jell/speedtest-go
 merge_package https://github.com/kenzok8/jell jell/speedtest-web
+merge_package https://github.com/kenzok8/jell jell/speedtest-cl
 popd
 
 # Lucky
