@@ -37,13 +37,15 @@ merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" o
 merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
 # merge_package https://github.com/kenzok8/jell jell/homebox
 # merge_package https://github.com/kenzok8/jell jell/luci-app-netspeedtest
-merge_package https://github.com/kenzok8/jell jell/quickstart
-merge_package https://github.com/kenzok8/jell jell/luci-app-quickstart
+# merge_package https://github.com/kenzok8/jell jell/quickstart
+# merge_package https://github.com/kenzok8/jell jell/luci-app-quickstart
+# merge_package https://github.com/kenzok8/jell jell/luci-lib-js
 merge_package https://github.com/kenzok8/jell jell/luci-app-store
 merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
 merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
 merge_package https://github.com/kenzok8/jell jell/taskd
 merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
+merge_package https://github.com/kenzok8/jell jell/speedtest-web
 popd
 
 # Lucky
