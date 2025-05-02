@@ -25,6 +25,7 @@ git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki
 git clone --depth=1 https://github.com/DHDAXCW/dhdaxcw-app
 git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+git clone --depth=1 https://github.com/sirpdboy/netspeedtest
 merge_package https://github.com/kenzok8/jell jell/luci-app-fan
 merge_package https://github.com/DHDAXCW/lede-rockchip lede-rockchip/package/wwan
 merge_package https://github.com/kenzok8/jell jell/luci-app-serverchan
@@ -34,7 +35,7 @@ merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" o
 # rm  -rf package/dhdaxcw-app/luci-app-adguardhome
 # merge_package https://github.com/kenzok8/jell jell/adguardhome
 # merge_package https://github.com/kenzok8/jell jell/luci-app-adguardhome
-merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
+# merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
 # merge_package https://github.com/kenzok8/jell jell/homebox
 # merge_package https://github.com/kenzok8/jell jell/luci-app-netspeedtest
 # merge_package https://github.com/kenzok8/jell jell/quickstart
@@ -44,10 +45,10 @@ merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
 # merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
 # merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
 # merge_package https://github.com/kenzok8/jell jell/taskd
-merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
-merge_package https://github.com/kenzok8/jell jell/speedtest-go
-merge_package https://github.com/kenzok8/jell jell/speedtest-web
-merge_package https://github.com/kenzok8/jell jell/speedtest-cl
+# merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
+# merge_package https://github.com/kenzok8/jell jell/speedtest-go
+# merge_package https://github.com/kenzok8/jell jell/speedtest-web
+# merge_package https://github.com/kenzok8/jell jell/speedtest-cl
 popd
 
 # Lucky
