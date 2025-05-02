@@ -4,6 +4,17 @@ on:
   # schedule:
   #   - cron: 0 16 * * *
   workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+        
+      CACHE_BUILD:
+        description: '缓存加速'
+        required: false
+        default: 'true'
+        type: boolean
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -11,6 +22,7 @@ env:
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
+  Firmware_Name: immortalwrt-mt798x-Banana-Pi-BPI-R4
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -55,6 +67,16 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
+
+    - name: 缓存
+      uses: klever1988/cachewrtbuild@main
+      if: env.CACHE_BUILD == 'true' || (github.event.inputs.CACHE_BUILD == 'true')
+      with:
+        ccache: 'true'
+        clean: 'false'
+        mixkey: '${{ env.Firmware_Name }}-${{ env.START_SECONDS }}'
+        prefix: ${{ github.workspace }}/openwrt
+
     - name: Update & install feeds
       working-directory: ./openwrt
       run: |
@@ -82,6 +104,13 @@ jobs:
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}   
 
     - name: Compile the firmware
       id: compile
