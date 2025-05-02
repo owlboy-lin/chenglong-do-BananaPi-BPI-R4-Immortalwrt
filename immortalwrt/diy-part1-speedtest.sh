@@ -31,24 +31,6 @@ merge_package https://github.com/DHDAXCW/lede-rockchip lede-rockchip/package/wwa
 merge_package https://github.com/kenzok8/jell jell/luci-app-serverchan
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/relevance/ddnsto
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/luci-app-ddnsto
-# rm  -rf package/dhdaxcw-app/adguardhome
-# rm  -rf package/dhdaxcw-app/luci-app-adguardhome
-# merge_package https://github.com/kenzok8/jell jell/adguardhome
-# merge_package https://github.com/kenzok8/jell jell/luci-app-adguardhome
-# merge_package https://github.com/kenzok8/jell jell/luci-app-poweroffdevice
-# merge_package https://github.com/kenzok8/jell jell/homebox
-# merge_package https://github.com/kenzok8/jell jell/luci-app-netspeedtest
-# merge_package https://github.com/kenzok8/jell jell/quickstart
-# merge_package https://github.com/kenzok8/jell jell/luci-app-quickstart
-# merge_package https://github.com/kenzok8/jell jell/luci-lib-js
-# merge_package https://github.com/kenzok8/jell jell/luci-app-store
-# merge_package https://github.com/kenzok8/jell jell/luci-lib-taskd
-# merge_package https://github.com/kenzok8/jell jell/luci-lib-xterm
-# merge_package https://github.com/kenzok8/jell jell/taskd
-# merge_package https://github.com/kenzok8/jell jell/luci-app-speedtest-web
-# merge_package https://github.com/kenzok8/jell jell/speedtest-go
-# merge_package https://github.com/kenzok8/jell jell/speedtest-web
-# merge_package https://github.com/kenzok8/jell jell/speedtest-cl
 popd
 
 # Lucky
