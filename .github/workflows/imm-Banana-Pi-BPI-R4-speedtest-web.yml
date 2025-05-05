@@ -3,6 +3,13 @@ name: imm-Banana-Pi-BPI-R4-speedtest-web
 on:
   # schedule:
   #   - cron: 0 16 * * *
+
+  release:
+    types: [published]
+  
+  watch:
+    types: [started]
+
   workflow_dispatch:
     inputs:
       ssh:

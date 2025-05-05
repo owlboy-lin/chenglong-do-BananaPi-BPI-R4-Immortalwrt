@@ -3,6 +3,14 @@ name: imm-Banana-Pi-BPI-R4-adguardhome
 on:
   # schedule:
   #   - cron: 0 16 * * *
+
+  release:
+    types: [published]
+  
+  watch:
+    types: [started]
+
+
   workflow_dispatch:
     inputs:
       ssh:
