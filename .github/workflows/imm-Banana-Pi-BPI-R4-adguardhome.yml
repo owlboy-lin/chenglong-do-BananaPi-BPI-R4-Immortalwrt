@@ -1,8 +1,8 @@
 name: imm-Banana-Pi-BPI-R4-adguardhome
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 12 * * *
 
   release:
     types: [published]
