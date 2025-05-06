@@ -155,7 +155,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.date1 }}_${{ env.OPENWRT_NAME }}_${{ env.OPENWRT_DEVICE }}
+        name: ${{ env.date1 }}_${{ env.Firmware_Name }}_${{ env.OPENWRT_DEVICE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tags
