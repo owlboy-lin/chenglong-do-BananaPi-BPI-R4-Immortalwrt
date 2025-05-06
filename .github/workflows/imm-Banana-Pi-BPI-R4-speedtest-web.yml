@@ -1,8 +1,8 @@
 name: imm-Banana-Pi-BPI-R4-speedtest-web
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 22 * * *
 
   release:
     types: [published]
