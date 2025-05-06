@@ -1,8 +1,8 @@
 name: imm-Banana-Pi-BPI-R4-poweroffdevice
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 18 * * *
 
   release:
     types: [published]
