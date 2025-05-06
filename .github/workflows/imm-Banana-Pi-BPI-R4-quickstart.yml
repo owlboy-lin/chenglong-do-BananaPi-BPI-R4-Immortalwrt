@@ -29,7 +29,7 @@ env:
   REPO_BRANCH: openwrt-24.10
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1-quickstart.sh
-  DIY_P2_SH: immortalwrt/diy-part2-2.sh
+  DIY_P2_SH: immortalwrt/diy-part2-1.sh
   Firmware_Name: imm-Banana-Pi-BPI-R4-quickstart
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
