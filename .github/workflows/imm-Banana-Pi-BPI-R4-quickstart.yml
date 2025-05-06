@@ -1,8 +1,8 @@
 name: imm-Banana-Pi-BPI-R4-quickstart
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 20 * * *
 
 
   release:
