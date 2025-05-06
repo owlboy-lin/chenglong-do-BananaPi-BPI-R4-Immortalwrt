@@ -1,8 +1,8 @@
 name: immortalwrt_mediatek
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 16 * * *
 
   release:
     types: [published]
@@ -49,7 +49,7 @@ jobs:
         swap-size-mb: 1024
         remove-dotnet: 'true'
 
-        
+
     - name: Check out the project branch
       uses: actions/checkout@main
 
