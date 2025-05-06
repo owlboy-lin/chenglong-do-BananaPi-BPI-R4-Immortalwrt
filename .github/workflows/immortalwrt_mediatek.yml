@@ -48,6 +48,8 @@ jobs:
         root-reserve-mb: 512
         swap-size-mb: 1024
         remove-dotnet: 'true'
+
+        
     - name: Check out the project branch
       uses: actions/checkout@main
 
