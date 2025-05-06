@@ -12,6 +12,7 @@ CONFIG_PACKAGE_luci-app-autoreboot=y
 
 # 关机
 CONFIG_PACKAGE_luci-app-poweroff=y
+CONFIG_PACKAGE_luci-app-poweroffdevice
 
 
 # openclash
@@ -60,7 +61,10 @@ CONFIG_PACKAGE_luci-app-accesscontrol=n
 CONFIG_PACKAGE_luci-app-ksmbd=n
 CONFIG_PACKAGE_luci-app-arpbind=n
 CONFIG_PACKAGE_luci-app-ddns=n
-CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-app-ddnsto=n
+CONFIG_PACKAGE_luci-app-dockerman=n
+# CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-app-netdata=y
 CONFIG_PACKAGE_luci-app-samba4=n
 CONFIG_PACKAGE_luci-app-smartdns=n
 CONFIG_PACKAGE_luci-app-upnp=n
