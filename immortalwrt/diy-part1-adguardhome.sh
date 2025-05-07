@@ -30,9 +30,10 @@ merge_package https://github.com/DHDAXCW/lede-rockchip lede-rockchip/package/wwa
 merge_package https://github.com/kenzok8/jell jell/luci-app-serverchan
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/relevance/ddnsto
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/luci-app-ddnsto
+popd
+
 rm  -rf package/dhdaxcw-app/adguardhome
 rm  -rf package/dhdaxcw-app/luci-app-adguardhome
-popd
 
 # Lucky
 rm -rf package/lucky
