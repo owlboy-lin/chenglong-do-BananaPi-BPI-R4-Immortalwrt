@@ -36,8 +36,8 @@ rm  -rf package/community/dhdaxcw-app/adguardhome
 rm  -rf package/community/dhdaxcw-app/luci-app-adguardhome
 
 pushd package/community
-merge_package https://github.com/kenzok8/jell jell/adguardhome
-merge_package https://github.com/kenzok8/jell jell/luci-app-adguardhome
+merge_package https://github.com/kenzok8/small-package small-package/adguardhome
+merge_package https://github.com/kenzok8/small-package small-package/luci-app-adguardhome
 popd
 
 
