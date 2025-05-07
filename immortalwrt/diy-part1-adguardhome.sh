@@ -32,8 +32,6 @@ merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" o
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/luci-app-ddnsto
 rm  -rf package/dhdaxcw-app/adguardhome
 rm  -rf package/dhdaxcw-app/luci-app-adguardhome
-merge_package https://github.com/kenzok8/jell jell/adguardhome
-merge_package https://github.com/kenzok8/jell jell/luci-app-adguardhome
 popd
 
 # Lucky
