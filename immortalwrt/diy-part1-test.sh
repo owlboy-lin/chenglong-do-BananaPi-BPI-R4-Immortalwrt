@@ -11,8 +11,8 @@ function merge_package(){
     rm -rf $repo
 }
 
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
+# rm -rf feeds/luci/themes/luci-theme-argon
+# rm -rf feeds/luci/applications/luci-app-argon-config
 
 # Clone community packages to package/community
 mkdir package/community
@@ -23,8 +23,8 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages
 git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki
 git clone --depth=1 https://github.com/DHDAXCW/dhdaxcw-app
-git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon
+# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 git clone --depth=1 https://github.com/sirpdboy/netspeedtest
 git clone --depth=1 https://github.com/sirpdboy/luci-app-poweroffdevice 
 git clone --depth=1 https://github.com/linkease/istore
