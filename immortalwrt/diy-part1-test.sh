@@ -36,6 +36,7 @@ merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" o
 merge_package https://github.com/kenzok8/jell jell/quickstart
 merge_package https://github.com/kenzok8/jell jell/luci-app-quickstart
 merge_package https://github.com/kenzok8/jell jell/luci-lib-js
+merge_package https://github.com/kenzok8/jell jell/luci-app-webadmin
 popd
 
 rm  -rf package/community/dhdaxcw-app/adguardhome
