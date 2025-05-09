@@ -1,4 +1,4 @@
-name: imm-Banana-Pi-BPI-R4-test
+name: immortalwrt_mediatek-Banana-Pi-BPI-R4
 
 on:
   schedule:
@@ -27,11 +27,11 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-24.10
-  CONFIG_FILE: bpi-r4/immortalwrt/mediatek/defconfig
+  CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1-test.sh
   DIY_P2_SH: immortalwrt/diy-part2-1.sh
-  Firmware_Name: imm-Banana-Pi-BPI-R4-test
-  DIR: bpi-r4
+  Firmware_Name: immortalwrt_mediatek-Banana-Pi-BPI-R4
+  # DIR: bpi-r4
   OPENWRT_NAME: immortalwrt
   OPENWRT_DEVICE: mediatek
   UPLOAD_FIRMWARE: true
@@ -76,8 +76,8 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        chmod +x $DIR/$OPENWRT_NAME/*.sh
-        $GITHUB_WORKSPACE/$DIR/$OPENWRT_NAME/system-Information.sh
+        chmod +x $OPENWRT_NAME/*.sh
+        $GITHUB_WORKSPACE/$OPENWRT_NAME/system-Information.sh
         
     - name: Download firmware source code
       run: |
@@ -102,15 +102,15 @@ jobs:
 
     - name: Load feeds.conf.default
       run: |
-        chmod +x $DIR/$OPENWRT_NAME/*.sh
+        chmod +x $OPENWRT_NAME/*.sh
         cd openwrt
-        $GITHUB_WORKSPACE/$DIR/$DIY_P1_SH
+        $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Load config
       run: |
         [ -e "$CONFIG_FILE" ] && cat "$CONFIG_FILE" > openwrt/.config
-        chmod +x $DIR/$OPENWRT_NAME/*.sh && cd openwrt
-        $GITHUB_WORKSPACE/$DIR/$DIY_P2_SH
+        chmod +x $OPENWRT_NAME/*.sh && cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: Download the installation package
       id: package
