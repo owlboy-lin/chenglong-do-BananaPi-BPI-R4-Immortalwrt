@@ -27,7 +27,7 @@ CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary=y
 CONFIG_PACKAGE_luci-app-mosdns=y
 
 
-# netspeedtest chmod +x /etc/init.d/netspeedtest
+# 网络速度测试
 CONFIG_PACKAGE_luci-app-netspeedtest=y
 
 # 宽带监控
@@ -39,6 +39,8 @@ CONFIG_PACKAGE_luci-app-nlbwmon=y
 # quickstart
 CONFIG_PACKAGE_luci-app-quickstart=y
 
+# 分区扩容
+CONFIG_PACKAGE_luci-app-partexp=y
 
 # store
 CONFIG_PACKAGE_luci-app-store=y
