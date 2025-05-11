@@ -138,8 +138,8 @@ jobs:
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
         make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "date1=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-        echo "date2=$(date "+%Y年%m月%d日")" >> $GITHUB_ENV
+        echo "date1=$(date +'%Y.%m.%d-%H.%M')" >> $GITHUB_ENV
+        echo "date2=$(date "+%Y年%m月%d日-%H点%M分")" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Organize and Rename Files
@@ -164,7 +164,7 @@ jobs:
       run: |
         echo "release_tag=${{ env.date2 }}" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "📥 固件下载" >> release.txt
+        echo "📥 固件下载 ${{ env.date1 }}_${{ env.Firmware_Name }}_${{ env.OPENWRT_DEVICE }}" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
         
     - name: Publish to release
