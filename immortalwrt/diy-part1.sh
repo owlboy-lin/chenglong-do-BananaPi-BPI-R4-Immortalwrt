@@ -18,7 +18,6 @@ rm -rf feeds/luci/applications/luci-app-argon-config
 mkdir package/community
 pushd package/community
 git clone --depth=1 https://github.com/fw876/helloworld
-git clone --depth=1 https://github.com/vernesong/OpenClash
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages
 git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki
@@ -46,3 +45,10 @@ rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
+# add luci-app-OpenClash
+mkdir package/OpenClash
+pushd package/OpenClash
+git clone --depth=1  https://github.com/vernesong/OpenClash
+git config core.sparsecheckout true
+popd
