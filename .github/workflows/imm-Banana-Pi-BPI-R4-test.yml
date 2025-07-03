@@ -31,11 +31,12 @@ env:
   DIY_P1_SH: immortalwrt/diy-part1-test.sh
   DIY_P2_SH: immortalwrt/diy-part2-1.sh
   Firmware_Name: imm-Banana-Pi-BPI-R4-test
+  OPENWRT_NAME: immortalwrt
+  OPENWRT_DEVICE: mediatek
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  OPENWRT_NAME: immortalwrt
-  OPENWRT_DEVICE: mediatek
+
 
 jobs:
   build:
