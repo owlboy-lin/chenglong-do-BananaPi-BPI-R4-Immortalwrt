@@ -213,13 +213,13 @@ jobs:
         echo "release_tag=${{ env.date2 }}" >> $GITHUB_OUTPUT
         touch release.txt
         echo "
-        📥 固件下载 ${{ env.date1 }}_${{ env.Firmware_Name }}_${{ env.OPENWRT_DEVICE }}" 
+        📥 固件下载 ${{ env.date1 }}_${{ env.Firmware_Name }}_${{ env.OPENWRT_DEVICE }}
         
         ★ 源码 : ${{ env.REPO_URL }} 
         
         ★ 分支 : ${{ env.REPO_BRANCH }} 
         
-        ★ 感谢源码作者无私分享！>> release.txt
+        ★ 感谢源码作者无私分享！ " >> release.txt
         
         echo "status=success" >> $GITHUB_OUTPUT
         
