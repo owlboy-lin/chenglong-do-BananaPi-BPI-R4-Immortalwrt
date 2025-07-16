@@ -29,6 +29,10 @@ merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" o
 merge_package "-b Immortalwrt https://github.com/shidahuilang/openwrt-package" openwrt-package/luci-app-ddnsto
 popd
 
+# add luci-app-lucky
+rm -rf package/lucky
+git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
+
 # add luci-app-mosdns
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
