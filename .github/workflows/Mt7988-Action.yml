@@ -1,9 +1,9 @@
 name: immortalwrt_mediatek
 
-on:
-  schedule:
-    - cron: 0 17 * * *
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: 0 17 * * *
+#   workflow_dispatch:
 
 env:
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
