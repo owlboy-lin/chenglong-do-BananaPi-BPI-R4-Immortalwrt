@@ -19,7 +19,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Maximize build space
@@ -104,7 +104,7 @@ jobs:
       if: ${{ env.UPLOAD_FIRMWARE == 'true' && !cancelled() }}
       run: |
         cd openwrt/bin/targets/mediatek/filogic
-        rm -rf packages *mt798* *.config *.buildinfo *.json sha256sums 
+        # rm -rf packages *mt798* *.config *.buildinfo *.json sha256sums 
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
         
