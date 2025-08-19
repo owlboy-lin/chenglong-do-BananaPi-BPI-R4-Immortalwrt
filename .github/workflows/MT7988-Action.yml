@@ -1,4 +1,4 @@
-name: immortalwrt_mediatek
+name: immortalwrt-mt798x-6.6
 
 on:
   # schedule:
