@@ -46,42 +46,46 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+
 
     steps:
-    - name: Maximize build space
-      uses: easimon/maximize-build-space@master
-      with:
-        root-reserve-mb: 512
-        swap-size-mb: 1024
-        remove-dotnet: 'true'
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
 
-    - name: Check out the project branch
-      uses: actions/checkout@main
+      - name: Check out the project branch
+        uses: actions/checkout@main
 
-    - name: Initialize the compilation environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        ( sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential clang flex g++ gawk gcc-multilib gettext \
-        git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev swig libpython3-dev aria2 jq subversion qemu-utils ccache rename libelf-dev
-        sudo -E apt-get -qq purge azure-cli ghc* zulu* hhvm llvm* firefox powershell openjdk* dotnet* google* mysql* php* android* rename speedtest-cli
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        sudo -E apt-get -qq autoremove --purge
-        sudo -E apt-get -qq clean ) &
-        sudo timedatectl set-timezone "$TZ"
-        
-    - name: Initialize Environment and Display System Info
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        chmod +x $OPENWRT_NAME/*.sh
-        $GITHUB_WORKSPACE/$OPENWRT_NAME/system-Information.sh
-        
-    - name: Download firmware source code
-      run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      - name: Initialize the compilation environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          ( sudo -E apt-get -qq update
+          sudo -E apt-get -qq install build-essential clang flex g++ gawk gcc-multilib gettext \
+          git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev swig libpython3-dev aria2 jq subversion qemu-utils ccache rename libelf-dev
+          sudo -E apt-get -qq purge azure-cli ghc* zulu* hhvm llvm* firefox powershell openjdk* dotnet* google* mysql* php* android* rename speedtest-cli
+          sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          sudo -E apt-get -qq autoremove --purge
+          sudo -E apt-get -qq clean ) &
+          sudo timedatectl set-timezone "$TZ"
+
+      - name: Initialize Environment and Display System Info
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          chmod +x $OPENWRT_NAME/*.sh
+          $GITHUB_WORKSPACE/$OPENWRT_NAME/system-Information.sh
+
+      - name: Download firmware source code
+        run: |
+          git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
 
     - name: 缓存
@@ -131,14 +135,6 @@ jobs:
 
 
     - name: Compile the firmware
-      id: compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(($(nproc) + 1)) || make -j$(($(nproc) + 1)) V=s
-        echo "status=success" >> $GITHUB_OUTPUT
-              
-    - name: Set the current date
       id: date
       run: |
         cd openwrt
