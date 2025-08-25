@@ -2,31 +2,8 @@ name: immortalwrt_mediatek
 
 on:
   schedule:
-<<<<<<< HEAD
-    - cron: 0 16 * * *
-
-  release:
-    types: [published]
-  
-  watch:
-    types: [started]
-
-
-=======
     - cron: 0 17 * * *
->>>>>>> 0131f84ded02415e779b9b660cfa1b691813fee0
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-        
-      CACHE_BUILD:
-        description: '缓存加速'
-        required: false
-        default: 'true'
-        type: boolean
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -34,7 +11,6 @@ env:
   CONFIG_FILE: immortalwrt/mediatek/defconfig
   DIY_P1_SH: immortalwrt/diy-part1.sh
   DIY_P2_SH: immortalwrt/diy-part2.sh
-  Firmware_Name: immortalwrt-mt798x-Banana-Pi-BPI-R4
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -46,18 +22,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-<<<<<<< HEAD
-    - name: Maximize build space
-      uses: easimon/maximize-build-space@master
-      with:
-        root-reserve-mb: 512
-        swap-size-mb: 1024
-        remove-dotnet: 'true'
-
-
-    - name: Check out the project branch
-      uses: actions/checkout@main
-=======
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -67,28 +31,10 @@ jobs:
           remove-android: 'true'
           remove-haskell: 'true'
           remove-codeql: 'true'
->>>>>>> 0131f84ded02415e779b9b660cfa1b691813fee0
 
       - name: Check out the project branch
         uses: actions/checkout@main
 
-<<<<<<< HEAD
-
-    - name: 缓存
-      uses: klever1988/cachewrtbuild@main
-      if: env.CACHE_BUILD == 'true' || (github.event.inputs.CACHE_BUILD == 'true')
-      with:
-        ccache: 'true'
-        clean: 'false'
-        mixkey: '${{ env.Firmware_Name }}-${{ env.START_SECONDS }}'
-        prefix: ${{ github.workspace }}/openwrt
-
-    - name: Update & install feeds
-      working-directory: ./openwrt
-      run: |
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-=======
       - name: Initialize the compilation environment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -101,7 +47,6 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean ) &
           sudo timedatectl set-timezone "$TZ"
->>>>>>> 0131f84ded02415e779b9b660cfa1b691813fee0
 
       - name: Initialize Environment and Display System Info
         env:
@@ -120,39 +65,11 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-<<<<<<< HEAD
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}   
-
-    - name: Compile the firmware
-      id: compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(($(nproc) + 1)) || make -j$(($(nproc) + 1)) V=s
-        echo "status=success" >> $GITHUB_OUTPUT
-              
-    - name: Set the current date
-      id: date
-      run: |
-        cd openwrt
-        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "date1=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
-        echo "date2=$(date "+%Y年%m月%d日")" >> $GITHUB_ENV
-        echo "status=success" >> $GITHUB_OUTPUT
-=======
       - name: Load feeds.conf.default
         run: |
           chmod +x $OPENWRT_NAME/*.sh
           cd openwrt
           $GITHUB_WORKSPACE/$DIY_P1_SH
->>>>>>> 0131f84ded02415e779b9b660cfa1b691813fee0
 
       - name: Load config
         run: |
@@ -160,27 +77,6 @@ jobs:
           chmod +x $OPENWRT_NAME/*.sh && cd openwrt
           $GITHUB_WORKSPACE/$DIY_P2_SH
 
-<<<<<<< HEAD
-    - name: Generate release tags
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "release_tag=${{ env.date2 }}" >> $GITHUB_OUTPUT
-        touch release.txt
-        echo "📥 固件下载 ${{ env.date1 }}_${{ env.OPENWRT_NAME }}_${{ env.OPENWRT_DEVICE }}" >> release.txt
-        echo "status=success" >> $GITHUB_OUTPUT
-        
-    - name: Publish to release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        files: ${{ env.FIRMWARE }}/*
-        name: ${{ env.date3 }}
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-=======
       - name: Download the installation package
         id: package
         run: |
@@ -236,4 +132,3 @@ jobs:
           name: ${{ env.date3 }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
->>>>>>> 0131f84ded02415e779b9b660cfa1b691813fee0
