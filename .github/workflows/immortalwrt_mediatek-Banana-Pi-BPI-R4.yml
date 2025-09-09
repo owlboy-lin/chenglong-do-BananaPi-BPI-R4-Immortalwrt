@@ -48,7 +48,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
@@ -140,6 +139,7 @@ jobs:
           cd openwrt
           grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
           [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
+          echo -e "$(nproc) thread compile"
           make -j$(nproc) || make -j1 || make -j1 V=s
           echo "date1=$(date +'%Y.%m.%d-%H.%M')" >> $GITHUB_ENV
           echo "date2=$(date "+%Y年%m月%d日-%H点%M分")" >> $GITHUB_ENV
