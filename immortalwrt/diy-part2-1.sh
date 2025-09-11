@@ -6,6 +6,9 @@ sed -i 's/192.168.1.1/192.168.89.249/g' package/base-files/files/bin/config_gene
 
 echo "
 
+# # Themes
+CONFIG_PACKAGE_luci-theme-argon=y
+
 # 自动重启
 CONFIG_PACKAGE_luci-app-autoreboot=y
 
@@ -33,7 +36,19 @@ CONFIG_PACKAGE_luci-app-netspeedtest=y
 # 宽带监控
 CONFIG_PACKAGE_luci-app-nlbwmon=y
 
+# nikki
+CONFIG_PACKAGE_luci-app-nikki=y
 
+
+# passwall
+CONFIG_PACKAGE_luci-app-passwall=y
+
+
+CONFIG_PACKAGE_luci-app-passwall2=y
+
+
+# luci-app-ssr-plus
+CONFIG_PACKAGE_luci-app-ssr-plus=y
 
 
 # quickstart
@@ -42,11 +57,13 @@ CONFIG_PACKAGE_luci-app-quickstart=y
 # 分区扩容
 CONFIG_PACKAGE_luci-app-partexp=y
 
+
 # store
 CONFIG_PACKAGE_luci-app-store=y
 
 # luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-ttyd=y
+
 
 # luci-app-uugamebooster
 luci-app-uugamebooster=n
