@@ -1,8 +1,8 @@
-name: immortalwrt_mediatek
+name: immortalwrt-mt798x-6.6
 
 on:
-  schedule:
-    - cron: 0 17 * * *
+  # schedule:
+  #   - cron: 0 16 * * *
   workflow_dispatch:
 
 env:
