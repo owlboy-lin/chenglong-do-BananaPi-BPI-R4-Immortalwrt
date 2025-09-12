@@ -85,12 +85,12 @@ CONFIG_PACKAGE_luci-app-webadmin=y
 # CONFIG_PACKAGE_luci-app-nlbwmon=n
 # CONFIG_PACKAGE_luci-app-netdata=n
 # CONFIG_PACKAGE_luci-app-samba4=n
-# CONFIG_PACKAGE_luci-app-smartdns=n
+CONFIG_PACKAGE_luci-app-smartdns=n
 CONFIG_PACKAGE_luci-app-upnp=y
 # CONFIG_PACKAGE_luci-app-vsftpd=n
 CONFIG_PACKAGE_luci-app-wol=y
-
-
+CONFIG_PACKAGE_luci-app-vlmcsd=n
+CONFIG_PACKAGE_luci-app-homeproxy=n
 
 
 
