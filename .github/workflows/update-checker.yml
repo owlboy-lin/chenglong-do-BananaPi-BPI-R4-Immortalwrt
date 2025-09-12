@@ -12,8 +12,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/chenglong-do/BananaPi-BPI-R4-Immortalwrt.git
+  REPO_BRANCH: main
 
 on:
   workflow_dispatch:
