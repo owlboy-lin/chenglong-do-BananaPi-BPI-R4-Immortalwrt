@@ -1,8 +1,8 @@
-name: immortalwrt_mediatek
+name: MY-immortalwrt-mt798x-6.6
 
 on:
-  schedule:
-    - cron: 0 17 * * *
+  # schedule:
+  #   - cron: 0 16 * * *
   workflow_dispatch:
 
 env:
@@ -11,6 +11,7 @@ env:
   CONFIG_FILE: immortalwrt/mtk/defconfig
   DIY_P1_SH: immortalwrt/diy-part3.sh
   DIY_P2_SH: immortalwrt/diy-part4.sh
+  Firmware_Name: My-Banana-Pi-BPI-R4
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -99,6 +100,24 @@ jobs:
         echo "date2=$(date "+%Y年%m月%d日")" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
+    - name: 整理固件文件
+      id: artifact
+      if: steps.organize.outputs.status == 'success' && !cancelled()
+      run: |
+        cd openwrt
+        mkdir -p ./artifact/firmware
+        mkdir -p ./artifact/package
+        mkdir -p ./artifact/buildinfo
+        rm -rf $(find ./bin/targets/ -type d -name "packages")
+        cp -rf $(find ./bin/targets/ -type f) ./artifact/firmware/
+        cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
+        cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
+        cp -rf ./.config ./artifact/buildinfo/${{ env.Firmware_Name }}.info
+        cp -rf ./.config ./artifact/firmware/${{ env.Firmware_Name }}.info
+        cp -rf ./feeds.conf.default ./artifact/buildinfo/ 
+        cd artifact/firmware/
+        # rename "s/openwrt/${{ env.Firmware_Name }}/" *
+
     - name: Organize and Rename Files
       id: organize
       if: ${{ env.UPLOAD_FIRMWARE == 'true' && !cancelled() }}
@@ -112,7 +131,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.date1 }}_${{ env.OPENWRT_NAME }}_${{ env.OPENWRT_DEVICE }}
+        name: ${{ env.date1 }}_${{ env.Firmware_Name }}
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tags
