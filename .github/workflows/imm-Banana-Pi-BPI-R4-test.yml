@@ -25,11 +25,11 @@ on:
         type: boolean
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-24.10
-  CONFIG_FILE: immortalwrt/mediatek/defconfig
-  DIY_P1_SH: immortalwrt/diy-part1-test.sh
-  DIY_P2_SH: immortalwrt/diy-part2-1.sh
+  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
+  REPO_BRANCH: openwrt-21.02
+  CONFIG_FILE: immortalwrt/mediatek/my-defconfig
+  DIY_P1_SH: immortalwrt/my-part1.sh
+  DIY_P2_SH: immortalwrt/my-part2.sh
   Firmware_Name: imm-Banana-Pi-BPI-R4-test
   OPENWRT_NAME: immortalwrt
   OPENWRT_DEVICE: mediatek
