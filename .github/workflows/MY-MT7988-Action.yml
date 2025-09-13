@@ -1,8 +1,8 @@
 name: MY-immortalwrt-mt798x-6.6
 
 on:
-  # schedule:
-  #   - cron: 0 16 * * *
+  schedule:
+    - cron: 0 16 * * *
   workflow_dispatch:
 
 env:
