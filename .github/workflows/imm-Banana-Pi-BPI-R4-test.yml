@@ -35,6 +35,11 @@ env:
   OPENWRT_DEVICE: mediatek
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
+  UPLOAD_BIN_DIR: false
+  UPLOAD_BUILDINFO: true
+  UPLOAD_PACKAGE: true
+  UPLOAD_COWTRANSFER: false
+  UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
 
 
