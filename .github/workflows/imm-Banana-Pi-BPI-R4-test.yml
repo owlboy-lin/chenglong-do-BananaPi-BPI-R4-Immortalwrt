@@ -25,8 +25,8 @@ on:
         type: boolean
 
 env:
-  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
-  REPO_BRANCH: openwrt-21.02
+  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
+  REPO_BRANCH: mt7988-6.6-mt76
   CONFIG_FILE: immortalwrt/mediatek/my-defconfig
   DIY_P1_SH: immortalwrt/my-part1.sh
   DIY_P2_SH: immortalwrt/my-part2.sh
