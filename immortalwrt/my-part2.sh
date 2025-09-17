@@ -74,6 +74,10 @@ CONFIG_PACKAGE_luci-app-webadmin=y
 
 CONFIG_PACKAGE_luci-app-turboacc-mtk=y
 
+CONFIG_PACKAGE_luci-app-fan=y
+CONFIG_PACKAGE_luci-app-Airpifanctrl=y
+
+
 # CONFIG_DEFAULT_autosamba=n
 # CONFIG_PACKAGE_autosamba=n
 # CONFIG_PACKAGE_autosamba_INCLUDE_KSMBD=n
