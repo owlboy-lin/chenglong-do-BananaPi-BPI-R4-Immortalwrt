@@ -72,6 +72,7 @@ luci-app-uugamebooster=n
 # luci-app-webadmin=y
 CONFIG_PACKAGE_luci-app-webadmin=y
 
+CONFIG_PACKAGE_luci-app-turboacc-mtk=y
 
 # CONFIG_DEFAULT_autosamba=n
 # CONFIG_PACKAGE_autosamba=n
@@ -83,7 +84,7 @@ CONFIG_PACKAGE_luci-app-webadmin=y
 # CONFIG_PACKAGE_luci-app-ddnsto=n
 # CONFIG_PACKAGE_luci-app-dockerman=n
 # CONFIG_PACKAGE_luci-app-nlbwmon=n
-# CONFIG_PACKAGE_luci-app-netdata=n
+CONFIG_PACKAGE_luci-app-netdata=y
 # CONFIG_PACKAGE_luci-app-samba4=n
 CONFIG_PACKAGE_luci-app-smartdns=n
 CONFIG_PACKAGE_luci-app-upnp=y
